@@ -10,6 +10,12 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
  http://jax-ws.dev.java.net/spring/servlet 
  http://jax-ws.dev.java.net/spring/servlet.xsd"> 
  
- <wss:binding url="/PlantSOAPService" service="#plantService" /> 
- <ws:service id="plantService" impl="cs.ut.domain.soap.web.PlantSOAPService" /> 
+<!--  <wss:binding url="/PlantSOAPService" service="#plantService" />  -->
+<!--  <ws:service id="plantService" impl="cs.ut.domain.soap.web.PlantSOAPService" />  -->
+	<wss:binding url="/PlantSOAPService"> 
+		<wss:service>
+			<ws:service bean="#myService"></ws:service>
+		</wss:service>
+	</wss:binding>
+	<bean id="myService" class="cs.ut.domain.soap.web.PlantSOAPService"/>
 </beans> 
