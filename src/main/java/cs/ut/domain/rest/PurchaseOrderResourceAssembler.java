@@ -1,11 +1,16 @@
 package cs.ut.domain.rest;
 
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.tostring.RooToString;
 
 import cs.ut.domain.Plant;
 import cs.ut.domain.PurchaseOrder;
 import cs.ut.domain.rest.controller.PurchaseOrderRestController;
 
+
+@RooJavaBean
+@RooToString
 public class PurchaseOrderResourceAssembler extends
 		ResourceAssemblerSupport<PurchaseOrder, PurchaseOrderResource> {
 

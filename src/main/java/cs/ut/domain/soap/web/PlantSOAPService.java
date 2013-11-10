@@ -10,6 +10,7 @@ import cs.ut.domain.Plant;
 import cs.ut.domain.PurchaseOrder;
 import cs.ut.domain.soap.PlantResourceAssembler;
 import cs.ut.domain.soap.PlantResourceList;
+import cs.ut.domain.soap.PurchaseOrderResource;
 
 @WebService
 public class PlantSOAPService {
@@ -22,10 +23,11 @@ public class PlantSOAPService {
 	}
 	
 	@WebMethod
-	public void CreatePurchaseOrder(PurchaseOrder res){
+	public void CreatePurchaseOrder(PurchaseOrderResource res){
+
 		PurchaseOrder po = new PurchaseOrder();
 		po.setEndDate(res.getEndDate());
-		po.setPlant(res.getPlant());
+		po.setPlant(Plant.findPlant(res.getPlantResource().getIdentifier()));
 		po.setStartDate(res.getStartDate());
 		po.setStatus(HireRequestStatus.PENDING_CONFIRMATION);
 		po.setTotalCost(res.getTotalCost());

@@ -12,7 +12,6 @@ import cs.ut.domain.HireRequestStatus;
 import cs.ut.domain.soap.PlantResource;
 @RooJavaBean
 @RooToString
-@XmlRootElement(name = "purchaseOrder")
 public class PurchaseOrderResource {
 
 	   	private Date startDate;
